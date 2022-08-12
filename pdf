@@ -1,0 +1,329 @@
+public void crearPDF()
+        {
+
+            PdfWriter pdfWriter = new PdfWriter(@"C:\REPORTES\" + ActiveUser.c_id.ToString() + "-" + ActiveUser.c_firstName.ToString() +"2"+ ".pdf");
+            PdfDocument pdf = new PdfDocument(pdfWriter);
+
+            Document documento = new Document(pdf, PageSize.LETTER);
+            documento.SetMargins(10, 5, 0, 5);
+
+            //IMAGENES-PLANTILLA PDF
+
+            Image imagen1 = new Image(ImageDataFactory.Create(folder + "\\Resources\\DC-3\\DC3-1.png"));
+            Image imagen2 = new Image(ImageDataFactory.Create(folder + "\\Resources\\DC-3\\DC3-2.jpg"));
+            Image firmalegal = new Image(ImageDataFactory.Create(folder + "\\Resources\\Logos\\firma_fer.png"));
+            Image firmalegalpatron = new Image(ImageDataFactory.Create(folder + "\\Resources\\Logos\\FIRMA_LEGAL.png"));
+            Image firmatrabajadores1 = new Image(ImageDataFactory.Create(folder + "\\Resources\\Logos\\FIRMA_TRABAJADORES.png"));
+            Image logo_empresa1 = new Image(ImageDataFactory.Create(folder + "\\Resources\\Logos\\LOGO_EMPRESA.png"));
+
+
+            //DATOS PDF POR ORDEN
+            firmalegal.ScaleToFit(134, 86);
+            firmalegal.SetFixedPosition(90, 183);
+            firmalegalpatron.ScaleToFit(100, 64);
+            firmalegalpatron.SetFixedPosition(250, 200);
+            firmatrabajadores1.ScaleToFit(100, 64);
+            firmatrabajadores1.SetFixedPosition(425, 200);
+
+            //LOGOS PDF
+            logo_empresa1.ScaleToFit(100, 64);
+            logo_empresa1.SetFixedPosition(470, 700);
+
+            //DATOS PDF POR ORDEN 
+
+            //NOMBRE
+            var parrafo = new Paragraph(NOMBRE_LABEL.Text);
+            parrafo.SetFixedPosition(21, 623, 250);
+            parrafo.SetFontSize(9);
+
+            //CURP PERSONA (18)
+            var c1 = new Paragraph(ActiveUser.c_email.ToString().Substring(0, 1));
+            c1.SetFixedPosition(25, 591, 30);
+            c1.SetFontSize(9);
+            c1.SetPaddingRight(50);
+
+            var c2 = new Paragraph(ActiveUser.c_email.ToString().Substring(1, 1));
+            c2.SetFixedPosition(43, 591, 30);
+            c2.SetFontSize(9);
+
+            var c3 = new Paragraph(ActiveUser.c_email.ToString().Substring(2, 1));
+            c3.SetFixedPosition(61, 591, 30);
+            c3.SetFontSize(9);
+
+            var c4 = new Paragraph(ActiveUser.c_email.ToString().Substring(3, 1));
+            c4.SetFixedPosition(79, 591, 30);
+            c4.SetFontSize(9);
+
+            var c5 = new Paragraph(ActiveUser.c_email.ToString().Substring(4, 1));
+            c5.SetFixedPosition(97, 591, 30);
+            c5.SetFontSize(9);
+
+            var c6 = new Paragraph(ActiveUser.c_email.ToString().Substring(5, 1));
+            c6.SetFixedPosition(115, 591, 30);
+            c6.SetFontSize(9);
+
+            var c7 = new Paragraph(ActiveUser.c_email.ToString().Substring(6, 1));
+            c7.SetFixedPosition(133, 591, 30);
+            c7.SetFontSize(9);
+
+            var c8 = new Paragraph(ActiveUser.c_email.ToString().Substring(7, 1));
+            c8.SetFixedPosition(151, 591, 30);
+            c8.SetFontSize(9);
+
+            var c9 = new Paragraph(ActiveUser.c_email.ToString().Substring(8, 1));
+            c9.SetFixedPosition(169, 591, 30);
+            c9.SetFontSize(9);
+
+            var c10 = new Paragraph(ActiveUser.c_email.ToString().Substring(9, 1));
+            c10.SetFixedPosition(186, 591, 30);
+            c10.SetFontSize(9);
+
+            var c11 = new Paragraph(ActiveUser.c_email.ToString().Substring(10, 1));
+            c11.SetFixedPosition(204, 591, 30);
+            c11.SetFontSize(9);
+
+            var c12 = new Paragraph(ActiveUser.c_email.ToString().Substring(11, 1));
+            c12.SetFixedPosition(222, 591, 30);
+            c12.SetFontSize(9);
+
+            var c13 = new Paragraph(ActiveUser.c_email.ToString().Substring(12, 1));
+            c13.SetFixedPosition(240, 591, 30);
+            c13.SetFontSize(9);
+
+            var c14 = new Paragraph(ActiveUser.c_email.ToString().Substring(13, 1));
+            c14.SetFixedPosition(258, 591, 30);
+            c14.SetFontSize(9);
+
+            var c15 = new Paragraph(ActiveUser.c_email.ToString().Substring(14, 1));
+            c15.SetFixedPosition(276, 591, 30);
+            c15.SetFontSize(9);
+
+            var c16 = new Paragraph(ActiveUser.c_email.ToString().Substring(15, 1));
+            c16.SetFixedPosition(294, 591, 30);
+            c16.SetFontSize(9);
+
+            var c17 = new Paragraph(ActiveUser.c_email.ToString().Substring(16, 1));
+            c17.SetFixedPosition(312, 591, 30);
+            c17.SetFontSize(9);
+
+            var c18 = new Paragraph(ActiveUser.c_email.ToString().Substring(17, 1));
+            c18.SetFixedPosition(329, 591, 30);
+            c18.SetFontSize(9);
+
+            //OCUPACION
+
+            var ocupacion = new Paragraph(OCUPACION_2_PDF.Text);
+            ocupacion.SetFixedPosition(345, 591, 200);
+            ocupacion.SetFontSize(9);
+
+            //PUESTO
+            var puesto = new Paragraph(ActiveUser.c_lastName.ToString());
+            puesto.SetFixedPosition(21, 559, 200);
+            puesto.SetFontSize(9);
+
+            //RFC EMPRESA
+            var nombre_empresa = new Paragraph(razon_social_empre.Text);
+            nombre_empresa.SetFixedPosition(21, 502, 300);
+            nombre_empresa.SetFontSize(9);
+
+            var rfc1 = new Paragraph(rfcempresa_ok.Text.Substring(0, 1));
+            rfc1.SetFixedPosition(24, 470, 100);
+            rfc1.SetFontSize(9);
+
+            var rfc2 = new Paragraph(rfcempresa_ok.Text.Substring(1, 1));
+            rfc2.SetFixedPosition(42, 470, 100);
+            rfc2.SetFontSize(9);
+
+            var rfc3 = new Paragraph(rfcempresa_ok.Text.Substring(2, 1));
+            rfc3.SetFixedPosition(60, 470, 100);
+            rfc3.SetFontSize(9);
+
+            var rfc4 = new Paragraph(rfcempresa_ok.Text.Substring(3, 1));
+            rfc4.SetFixedPosition(78, 470, 100);
+            rfc4.SetFontSize(9);
+
+            var rfc5 = new Paragraph(rfcempresa_ok.Text.Substring(4, 1));
+            rfc5.SetFixedPosition(96, 470, 100);
+            rfc5.SetFontSize(9);
+
+            var rfc6 = new Paragraph(rfcempresa_ok.Text.Substring(5, 1));
+            rfc6.SetFixedPosition(114, 470, 100);
+            rfc6.SetFontSize(9);
+
+            var rfc7 = new Paragraph(rfcempresa_ok.Text.Substring(6, 1));
+            rfc7.SetFixedPosition(132, 470, 100);
+            rfc7.SetFontSize(9);
+
+            var rfc8 = new Paragraph(rfcempresa_ok.Text.Substring(7, 1));
+            rfc8.SetFixedPosition(150, 470, 100);
+            rfc8.SetFontSize(9);
+
+            var rfc9 = new Paragraph(rfcempresa_ok.Text.Substring(8, 1));
+            rfc9.SetFixedPosition(168, 470, 100);
+            rfc9.SetFontSize(9);
+
+            var rfc10 = new Paragraph(rfcempresa_ok.Text.Substring(9, 1));
+            rfc10.SetFixedPosition(186, 470, 100);
+            rfc10.SetFontSize(9);
+
+            var rfc11 = new Paragraph(rfcempresa_ok.Text.Substring(10, 1));
+            rfc11.SetFixedPosition(204, 470, 100);
+            rfc11.SetFontSize(9);
+
+            var rfc12 = new Paragraph(rfcempresa_ok.Text.Substring(11, 1));
+            rfc12.SetFixedPosition(222, 470, 100);
+            rfc12.SetFontSize(9);
+
+            //NOMBRE CURSO
+            var nombre_curso = new Paragraph(nombre_cursotxt.Text);
+            nombre_curso.SetFixedPosition(21, 414, 800);
+            nombre_curso.SetFontSize(9);
+
+            //CONDICION TIPO CAPACITADOR
+
+            var capacitador = new Paragraph(para_pdf_2.Text);
+            capacitador.SetFixedPosition(23, 318, 800);
+            capacitador.SetFontSize(9);
+
+            var instructor_tutor = new Paragraph("ING.FERNANDO PADILLA SIERRA");
+            instructor_tutor.SetFixedPosition(56, 183, 800);
+            instructor_tutor.SetFontSize(9);
+
+
+            //FIRMAS TEXTOS
+            var representante_legal = new Paragraph(representante_legal2.Text);
+            representante_legal.SetFixedPosition(240, 183, 800);
+            representante_legal.SetFontSize(9);
+
+            var represenante_trabajadores = new Paragraph(representante_trabaja2.Text);
+            represenante_trabajadores.SetFixedPosition(415, 183, 800);
+            represenante_trabajadores.SetFontSize(9);
+
+            //DURACION
+
+            var duracion_horas = new Paragraph("2 HORAS");
+            duracion_horas.SetFixedPosition(23, 382, 800);
+            duracion_horas.SetFontSize(9);
+
+            //FECHAS INICIO
+            var fechainicio_año = new Paragraph(fechainiciotxt.Text.Substring(6, 4));
+            fechainicio_año.SetFixedPosition(313, 382, 800);
+            fechainicio_año.SetFontSize(9);
+
+            var fechainicio_mes = new Paragraph(fechainiciotxt.Text.Substring(3, 2));
+            fechainicio_mes.SetFixedPosition(370, 382, 800);
+            fechainicio_mes.SetFontSize(9);
+
+            var fechainicio_dia = new Paragraph(fechainiciotxt.Text.Substring(0, 2));
+            fechainicio_dia.SetFixedPosition(405, 382, 800);
+            fechainicio_dia.SetFontSize(9);
+
+            //FECHA TERMINO
+
+            var fechatermino_año = new Paragraph(fechaterminotxt.Text.Substring(6, 4));
+            fechatermino_año.SetFixedPosition(475, 382, 800);
+            fechatermino_año.SetFontSize(9);
+
+            var fechatermino_mes = new Paragraph(fechaterminotxt.Text.Substring(3, 2));
+            fechatermino_mes.SetFixedPosition(532, 382, 800);
+            fechatermino_mes.SetFontSize(9);
+
+            var fechatermino_dia = new Paragraph(fechaterminotxt.Text.Substring(0, 2));
+            fechatermino_dia.SetFixedPosition(567, 382, 800);
+            fechatermino_dia.SetFontSize(9);
+
+            //AREA TEMATICA
+
+            var areatematica_2 = new Paragraph("6000 SEGURIDAD");
+            areatematica_2.SetFixedPosition(23, 350, 800);
+            areatematica_2.SetFontSize(9);
+
+            //INGRESO EN DOCUMENTOS
+
+            documento.Add(imagen1);
+
+            documento.Add(parrafo);
+            documento.Add(c1);
+            documento.Add(c2);
+            documento.Add(c3);
+            documento.Add(c4);
+            documento.Add(c5);
+            documento.Add(c6);
+            documento.Add(c7);
+            documento.Add(c8);
+            documento.Add(c9);
+            documento.Add(c10);
+            documento.Add(c11);
+            documento.Add(c12);
+            documento.Add(c13);
+            documento.Add(c14);
+            documento.Add(c15);
+            documento.Add(c16);
+            documento.Add(c17);
+            documento.Add(c18);
+
+            documento.Add(ocupacion);
+            documento.Add(puesto);
+            documento.Add(nombre_empresa);
+
+
+            documento.Add(rfc1);
+            documento.Add(rfc2);
+            documento.Add(rfc3);
+            documento.Add(rfc4);
+            documento.Add(rfc4);
+            documento.Add(rfc5);
+            documento.Add(rfc6);
+            documento.Add(rfc7);
+            documento.Add(rfc8);
+            documento.Add(rfc9);
+            documento.Add(rfc10);
+            documento.Add(rfc11);
+            documento.Add(rfc12);
+
+            documento.Add(nombre_curso);
+            documento.Add(duracion_horas);
+
+            documento.Add(fechainicio_año);
+            documento.Add(fechainicio_mes);
+            documento.Add(fechainicio_dia);
+
+
+            documento.Add(fechatermino_año);
+            documento.Add(fechatermino_mes);
+            documento.Add(fechatermino_dia);
+
+            documento.Add(areatematica_2);
+
+            documento.Add(capacitador);
+
+            documento.Add(instructor_tutor);
+
+            documento.Add(representante_legal);
+
+            documento.Add(represenante_trabajadores);
+
+            documento.Add(firmalegal);
+
+            documento.Add(firmalegalpatron);
+
+            documento.Add(firmatrabajadores1);
+
+            documento.Add(logo_empresa1);
+
+
+
+
+
+            documento.Add(imagen2);
+
+
+
+
+
+            documento.Close();
+
+
+
+
+        }
